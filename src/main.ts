@@ -29,7 +29,13 @@ function init() {
 
   // 球体を作成
   const geometry = new THREE.SphereGeometry(300, 30, 30);
-  const material = new THREE.MeshStandardMaterial({color: 0xFF0000});
+  // 画像を読み込む
+  const loader = new THREE.TextureLoader();
+  const texture = loader.load('/assets/earthmap1k.jpg');
+  // マテリアルにテクスチャーを設定
+  const material = new THREE.MeshStandardMaterial({
+    map: texture
+  });
   // メッシュを作成
   const mesh = new THREE.Mesh(geometry, material);
   // 3D空間にメッシュを追加
